@@ -1,0 +1,8 @@
+asteval
+numpy
+pulp
+typing
+scipy
+sympy
+quantum_executor
+pandas
