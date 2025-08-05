@@ -1,0 +1,50 @@
+{
+    "configuration": {
+        "providers": [
+            [
+                "local_aer",
+                []
+            ]
+        ],
+        "backends": [
+            [
+                "local_aer",
+                "fake_torino"
+            ],
+            [
+                "local_aer",
+                "fake_kyiv"
+            ],
+            [
+                "local_aer",
+                "fake_sherbrooke"
+            ],
+            [
+                "local_aer",
+                "fake_fez"
+            ],
+            [
+                "local_aer",
+                "fake_marrakesh"
+            ]
+        ],
+        "execute_flag": false,
+        "qasm": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_IQFT_dg q0,q1,q2,q3,q4 { swap q1,q3; swap q0,q4; h q0; cp(-pi/2) q1,q0; h q1; cp(-pi/4) q2,q0; cp(-pi/2) q2,q1; h q2; cp(-pi/8) q3,q0; cp(-pi/4) q3,q1; cp(-pi/2) q3,q2; h q3; cp(-pi/16) q4,q0; cp(-pi/8) q4,q1; cp(-pi/4) q4,q2; cp(-pi/2) q4,q3; h q4; }\nqreg q[5];\nqreg psi[1];\ncreg c[5];\nx psi[0];\nh q[0];\nh q[1];\nh q[2];\nh q[3];\nh q[4];\ncp(-7*pi/8) psi[0],q[0];\ncp(pi/4) psi[0],q[1];\ncp(pi/2) psi[0],q[2];\ncp(pi) psi[0],q[3];\ngate_IQFT_dg q[0],q[1],q[2],q[3],q[4];\nbarrier q[0],q[1],q[2],q[3],q[4],psi[0];\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];\nmeasure q[2] -> c[2];\nmeasure q[3] -> c[3];\nmeasure q[4] -> c[4];",
+        "results_folder": "./results_nonlinear",
+        "optimizer": "nonlinear",
+        "algorithm": "qpeexact",
+        "size": 6,
+        "circuit_name": "qpeexact_6",
+        "shots": 4096,
+        "nonlinear_iterations": 1,
+        "nonlinear_annealings": 37
+    },
+    "model_file": "scenario1.json",
+    "circuit_name": "qpeexact_6",
+    "reasoner_results": {
+        "status": "no_solution_found",
+        "shots": {},
+        "objective": null,
+        "solver_exec_time": 0.00210464745759964
+    }
+}

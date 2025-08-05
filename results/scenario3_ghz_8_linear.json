@@ -1,0 +1,79 @@
+{
+    "configuration": {
+        "providers": [
+            [
+                "local_aer",
+                []
+            ]
+        ],
+        "backends": [
+            [
+                "local_aer",
+                "fake_torino"
+            ],
+            [
+                "local_aer",
+                "fake_kyiv"
+            ],
+            [
+                "local_aer",
+                "fake_sherbrooke"
+            ],
+            [
+                "local_aer",
+                "fake_fez"
+            ],
+            [
+                "local_aer",
+                "fake_marrakesh"
+            ]
+        ],
+        "execute_flag": false,
+        "qasm": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\nqreg q[8];\ncreg meas[8];\nh q[7];\ncx q[7],q[6];\ncx q[6],q[5];\ncx q[5],q[4];\ncx q[4],q[3];\ncx q[3],q[2];\ncx q[2],q[1];\ncx q[1],q[0];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7];\nmeasure q[0] -> meas[0];\nmeasure q[1] -> meas[1];\nmeasure q[2] -> meas[2];\nmeasure q[3] -> meas[3];\nmeasure q[4] -> meas[4];\nmeasure q[5] -> meas[5];\nmeasure q[6] -> meas[6];\nmeasure q[7] -> meas[7];",
+        "results_folder": "./results",
+        "optimizer": "linear",
+        "algorithm": "ghz",
+        "size": 8,
+        "circuit_name": "ghz_8",
+        "shots": 4096
+    },
+    "model_file": "scenario3.json",
+    "circuit_name": "ghz_8",
+    "reasoner_results": {
+        "status": "solution_found",
+        "dispatch": {
+            "local_aer": {
+                "fake_torino": [
+                    {
+                        "shots": 1124
+                    }
+                ],
+                "fake_kyiv": [
+                    {
+                        "shots": 957
+                    }
+                ],
+                "fake_sherbrooke": [
+                    {
+                        "shots": 627
+                    }
+                ],
+                "fake_fez": [
+                    {
+                        "shots": 588
+                    }
+                ],
+                "fake_marrakesh": [
+                    {
+                        "shots": 800
+                    }
+                ]
+            }
+        },
+        "score": 693.2,
+        "evaluation": 661.04,
+        "solver_exec_time": 0.01663760282099247,
+        "total_cost": 764.7153608513379,
+        "max_time": 661.04
+    }
+}
