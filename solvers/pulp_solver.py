@@ -301,10 +301,16 @@ class PulpSolver(SolverInterface):
             return dispatch
 
         dispatch = created_dispatch(backends, shot_vals)
+
+        total_cost = sum(per_backend_values["cost"].values())
+        max_time = max(per_backend_values["execution_time"][name] + per_backend_values["waiting_time"][name] for name in names)
+
         return {
             "status": status,
             "dispatch": dispatch,
             "score": obj_val,
             "evaluation": recomputed_obj,
             "solver_exec_time": end - start,
+            "total_cost": total_cost,
+            "max_time": max_time,
         }

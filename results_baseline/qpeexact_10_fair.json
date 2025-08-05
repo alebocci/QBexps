@@ -1,0 +1,66 @@
+{
+    "algorithm": "qpeexact",
+    "size": 10,
+    "circuit_name": "qpeexact_10",
+    "baseline": [
+        [
+            "fake_torino",
+            819
+        ],
+        [
+            "fake_kyiv",
+            819
+        ],
+        [
+            "fake_sherbrooke",
+            819
+        ],
+        [
+            "fake_fez",
+            819
+        ],
+        [
+            "fake_marrakesh",
+            819
+        ]
+    ],
+    "scenario1_value": 872.3187305031586,
+    "scenario2_value": -840.5674610063171,
+    "scenario3_value": 904.07,
+    "total_cost": 840.5674610063171,
+    "max_time": 904.07,
+    "dispatch": {
+        "local_aer": {
+            "fake_torino": [
+                {
+                    "circuit": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_IQFT_dg q0,q1,q2,q3,q4,q5,q6,q7,q8 { swap q3,q5; swap q2,q6; swap q1,q7; swap q0,q8; h q0; cp(-pi/2) q1,q0; h q1; cp(-pi/4) q2,q0; cp(-pi/2) q2,q1; h q2; cp(-pi/8) q3,q0; cp(-pi/4) q3,q1; cp(-pi/2) q3,q2; h q3; cp(-pi/16) q4,q0; cp(-pi/8) q4,q1; cp(-pi/4) q4,q2; cp(-pi/2) q4,q3; h q4; cp(-pi/32) q5,q0; cp(-pi/16) q5,q1; cp(-pi/8) q5,q2; cp(-pi/4) q5,q3; cp(-pi/2) q5,q4; h q5; cp(-pi/64) q6,q0; cp(-pi/32) q6,q1; cp(-pi/16) q6,q2; cp(-pi/8) q6,q3; cp(-pi/4) q6,q4; cp(-pi/2) q6,q5; h q6; cp(-pi/128) q7,q0; cp(-pi/64) q7,q1; cp(-pi/32) q7,q2; cp(-pi/16) q7,q3; cp(-pi/8) q7,q4; cp(-pi/4) q7,q5; cp(-pi/2) q7,q6; h q7; cp(-pi/256) q8,q0; cp(-pi/128) q8,q1; cp(-pi/64) q8,q2; cp(-pi/32) q8,q3; cp(-pi/16) q8,q4; cp(-pi/8) q8,q5; cp(-pi/4) q8,q6; cp(-pi/2) q8,q7; h q8; }\nqreg q[9];\nqreg psi[1];\ncreg c[9];\nx psi[0];\nh q[0];\nh q[1];\nh q[2];\nh q[3];\nh q[4];\nh q[5];\nh q[6];\nh q[7];\nh q[8];\ncp(-2.6998061866787286) psi[0],q[0];\ncp(0.8835729338221293) psi[0],q[1];\ncp(9*pi/16) psi[0],q[2];\ncp(-7*pi/8) psi[0],q[3];\ncp(pi/4) psi[0],q[4];\ncp(pi/2) psi[0],q[5];\ncp(pi) psi[0],q[6];\ngate_IQFT_dg q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8],psi[0];\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];\nmeasure q[2] -> c[2];\nmeasure q[3] -> c[3];\nmeasure q[4] -> c[4];\nmeasure q[5] -> c[5];\nmeasure q[6] -> c[6];\nmeasure q[7] -> c[7];\nmeasure q[8] -> c[8];",
+                    "shots": 819
+                }
+            ],
+            "fake_kyiv": [
+                {
+                    "circuit": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_IQFT_dg q0,q1,q2,q3,q4,q5,q6,q7,q8 { swap q3,q5; swap q2,q6; swap q1,q7; swap q0,q8; h q0; cp(-pi/2) q1,q0; h q1; cp(-pi/4) q2,q0; cp(-pi/2) q2,q1; h q2; cp(-pi/8) q3,q0; cp(-pi/4) q3,q1; cp(-pi/2) q3,q2; h q3; cp(-pi/16) q4,q0; cp(-pi/8) q4,q1; cp(-pi/4) q4,q2; cp(-pi/2) q4,q3; h q4; cp(-pi/32) q5,q0; cp(-pi/16) q5,q1; cp(-pi/8) q5,q2; cp(-pi/4) q5,q3; cp(-pi/2) q5,q4; h q5; cp(-pi/64) q6,q0; cp(-pi/32) q6,q1; cp(-pi/16) q6,q2; cp(-pi/8) q6,q3; cp(-pi/4) q6,q4; cp(-pi/2) q6,q5; h q6; cp(-pi/128) q7,q0; cp(-pi/64) q7,q1; cp(-pi/32) q7,q2; cp(-pi/16) q7,q3; cp(-pi/8) q7,q4; cp(-pi/4) q7,q5; cp(-pi/2) q7,q6; h q7; cp(-pi/256) q8,q0; cp(-pi/128) q8,q1; cp(-pi/64) q8,q2; cp(-pi/32) q8,q3; cp(-pi/16) q8,q4; cp(-pi/8) q8,q5; cp(-pi/4) q8,q6; cp(-pi/2) q8,q7; h q8; }\nqreg q[9];\nqreg psi[1];\ncreg c[9];\nx psi[0];\nh q[0];\nh q[1];\nh q[2];\nh q[3];\nh q[4];\nh q[5];\nh q[6];\nh q[7];\nh q[8];\ncp(-2.6998061866787286) psi[0],q[0];\ncp(0.8835729338221293) psi[0],q[1];\ncp(9*pi/16) psi[0],q[2];\ncp(-7*pi/8) psi[0],q[3];\ncp(pi/4) psi[0],q[4];\ncp(pi/2) psi[0],q[5];\ncp(pi) psi[0],q[6];\ngate_IQFT_dg q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8],psi[0];\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];\nmeasure q[2] -> c[2];\nmeasure q[3] -> c[3];\nmeasure q[4] -> c[4];\nmeasure q[5] -> c[5];\nmeasure q[6] -> c[6];\nmeasure q[7] -> c[7];\nmeasure q[8] -> c[8];",
+                    "shots": 819
+                }
+            ],
+            "fake_sherbrooke": [
+                {
+                    "circuit": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_IQFT_dg q0,q1,q2,q3,q4,q5,q6,q7,q8 { swap q3,q5; swap q2,q6; swap q1,q7; swap q0,q8; h q0; cp(-pi/2) q1,q0; h q1; cp(-pi/4) q2,q0; cp(-pi/2) q2,q1; h q2; cp(-pi/8) q3,q0; cp(-pi/4) q3,q1; cp(-pi/2) q3,q2; h q3; cp(-pi/16) q4,q0; cp(-pi/8) q4,q1; cp(-pi/4) q4,q2; cp(-pi/2) q4,q3; h q4; cp(-pi/32) q5,q0; cp(-pi/16) q5,q1; cp(-pi/8) q5,q2; cp(-pi/4) q5,q3; cp(-pi/2) q5,q4; h q5; cp(-pi/64) q6,q0; cp(-pi/32) q6,q1; cp(-pi/16) q6,q2; cp(-pi/8) q6,q3; cp(-pi/4) q6,q4; cp(-pi/2) q6,q5; h q6; cp(-pi/128) q7,q0; cp(-pi/64) q7,q1; cp(-pi/32) q7,q2; cp(-pi/16) q7,q3; cp(-pi/8) q7,q4; cp(-pi/4) q7,q5; cp(-pi/2) q7,q6; h q7; cp(-pi/256) q8,q0; cp(-pi/128) q8,q1; cp(-pi/64) q8,q2; cp(-pi/32) q8,q3; cp(-pi/16) q8,q4; cp(-pi/8) q8,q5; cp(-pi/4) q8,q6; cp(-pi/2) q8,q7; h q8; }\nqreg q[9];\nqreg psi[1];\ncreg c[9];\nx psi[0];\nh q[0];\nh q[1];\nh q[2];\nh q[3];\nh q[4];\nh q[5];\nh q[6];\nh q[7];\nh q[8];\ncp(-2.6998061866787286) psi[0],q[0];\ncp(0.8835729338221293) psi[0],q[1];\ncp(9*pi/16) psi[0],q[2];\ncp(-7*pi/8) psi[0],q[3];\ncp(pi/4) psi[0],q[4];\ncp(pi/2) psi[0],q[5];\ncp(pi) psi[0],q[6];\ngate_IQFT_dg q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8],psi[0];\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];\nmeasure q[2] -> c[2];\nmeasure q[3] -> c[3];\nmeasure q[4] -> c[4];\nmeasure q[5] -> c[5];\nmeasure q[6] -> c[6];\nmeasure q[7] -> c[7];\nmeasure q[8] -> c[8];",
+                    "shots": 819
+                }
+            ],
+            "fake_fez": [
+                {
+                    "circuit": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_IQFT_dg q0,q1,q2,q3,q4,q5,q6,q7,q8 { swap q3,q5; swap q2,q6; swap q1,q7; swap q0,q8; h q0; cp(-pi/2) q1,q0; h q1; cp(-pi/4) q2,q0; cp(-pi/2) q2,q1; h q2; cp(-pi/8) q3,q0; cp(-pi/4) q3,q1; cp(-pi/2) q3,q2; h q3; cp(-pi/16) q4,q0; cp(-pi/8) q4,q1; cp(-pi/4) q4,q2; cp(-pi/2) q4,q3; h q4; cp(-pi/32) q5,q0; cp(-pi/16) q5,q1; cp(-pi/8) q5,q2; cp(-pi/4) q5,q3; cp(-pi/2) q5,q4; h q5; cp(-pi/64) q6,q0; cp(-pi/32) q6,q1; cp(-pi/16) q6,q2; cp(-pi/8) q6,q3; cp(-pi/4) q6,q4; cp(-pi/2) q6,q5; h q6; cp(-pi/128) q7,q0; cp(-pi/64) q7,q1; cp(-pi/32) q7,q2; cp(-pi/16) q7,q3; cp(-pi/8) q7,q4; cp(-pi/4) q7,q5; cp(-pi/2) q7,q6; h q7; cp(-pi/256) q8,q0; cp(-pi/128) q8,q1; cp(-pi/64) q8,q2; cp(-pi/32) q8,q3; cp(-pi/16) q8,q4; cp(-pi/8) q8,q5; cp(-pi/4) q8,q6; cp(-pi/2) q8,q7; h q8; }\nqreg q[9];\nqreg psi[1];\ncreg c[9];\nx psi[0];\nh q[0];\nh q[1];\nh q[2];\nh q[3];\nh q[4];\nh q[5];\nh q[6];\nh q[7];\nh q[8];\ncp(-2.6998061866787286) psi[0],q[0];\ncp(0.8835729338221293) psi[0],q[1];\ncp(9*pi/16) psi[0],q[2];\ncp(-7*pi/8) psi[0],q[3];\ncp(pi/4) psi[0],q[4];\ncp(pi/2) psi[0],q[5];\ncp(pi) psi[0],q[6];\ngate_IQFT_dg q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8],psi[0];\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];\nmeasure q[2] -> c[2];\nmeasure q[3] -> c[3];\nmeasure q[4] -> c[4];\nmeasure q[5] -> c[5];\nmeasure q[6] -> c[6];\nmeasure q[7] -> c[7];\nmeasure q[8] -> c[8];",
+                    "shots": 819
+                }
+            ],
+            "fake_marrakesh": [
+                {
+                    "circuit": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_IQFT_dg q0,q1,q2,q3,q4,q5,q6,q7,q8 { swap q3,q5; swap q2,q6; swap q1,q7; swap q0,q8; h q0; cp(-pi/2) q1,q0; h q1; cp(-pi/4) q2,q0; cp(-pi/2) q2,q1; h q2; cp(-pi/8) q3,q0; cp(-pi/4) q3,q1; cp(-pi/2) q3,q2; h q3; cp(-pi/16) q4,q0; cp(-pi/8) q4,q1; cp(-pi/4) q4,q2; cp(-pi/2) q4,q3; h q4; cp(-pi/32) q5,q0; cp(-pi/16) q5,q1; cp(-pi/8) q5,q2; cp(-pi/4) q5,q3; cp(-pi/2) q5,q4; h q5; cp(-pi/64) q6,q0; cp(-pi/32) q6,q1; cp(-pi/16) q6,q2; cp(-pi/8) q6,q3; cp(-pi/4) q6,q4; cp(-pi/2) q6,q5; h q6; cp(-pi/128) q7,q0; cp(-pi/64) q7,q1; cp(-pi/32) q7,q2; cp(-pi/16) q7,q3; cp(-pi/8) q7,q4; cp(-pi/4) q7,q5; cp(-pi/2) q7,q6; h q7; cp(-pi/256) q8,q0; cp(-pi/128) q8,q1; cp(-pi/64) q8,q2; cp(-pi/32) q8,q3; cp(-pi/16) q8,q4; cp(-pi/8) q8,q5; cp(-pi/4) q8,q6; cp(-pi/2) q8,q7; h q8; }\nqreg q[9];\nqreg psi[1];\ncreg c[9];\nx psi[0];\nh q[0];\nh q[1];\nh q[2];\nh q[3];\nh q[4];\nh q[5];\nh q[6];\nh q[7];\nh q[8];\ncp(-2.6998061866787286) psi[0],q[0];\ncp(0.8835729338221293) psi[0],q[1];\ncp(9*pi/16) psi[0],q[2];\ncp(-7*pi/8) psi[0],q[3];\ncp(pi/4) psi[0],q[4];\ncp(pi/2) psi[0],q[5];\ncp(pi) psi[0],q[6];\ngate_IQFT_dg q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8],psi[0];\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];\nmeasure q[2] -> c[2];\nmeasure q[3] -> c[3];\nmeasure q[4] -> c[4];\nmeasure q[5] -> c[5];\nmeasure q[6] -> c[6];\nmeasure q[7] -> c[7];\nmeasure q[8] -> c[8];",
+                    "shots": 819
+                }
+            ]
+        }
+    }
+}

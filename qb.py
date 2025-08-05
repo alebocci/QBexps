@@ -11,14 +11,14 @@ from quantum_executor import QuantumExecutor, VirtualProvider, Dispatch
 from evaluator_sim import Evaluator
 
 logger = logging.getLogger("qb")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.ERROR)
 logger.propagate = False
 
 if logger.hasHandlers():
     logger.handlers.clear()
 
 handler = logging.StreamHandler(sys.stdout)
-handler.setLevel(logging.INFO)
+handler.setLevel(logging.ERROR)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
@@ -142,7 +142,7 @@ def run_qb(settings, model_path):
         logger.info(f"Excluding backends with insufficient fidelity: {', '.join(excluded_backends)}")
 
     if all(len(filtered_backends[p]) == 0 for p in filtered_backends):
-        logger.error("No backends meet the fidelity threshold. Please adjust the threshold or check the backend properties.")
+        logger.info("No backends meet the fidelity threshold. Please adjust the threshold or check the backend properties.")
         to_dump = {
             "configuration": settings,
             "model_file": model_path,
@@ -193,7 +193,7 @@ def run_qb(settings, model_path):
         }
         with open(filename, "w") as f:
             json.dump(to_dump, f, indent=4)
-        logger.error(f"Solver did not find a solution. Status: {reasoner_results['status']}")
+        logger.info(f"Solver did not find a solution. Status: {reasoner_results['status']}")
         return
 
     logger.info(f"Dispatch created successfully.")
@@ -279,6 +279,7 @@ if __name__ == "__main__":
     if optimizer not in ["linear", "nonlinear"]:
         raise ValueError("Invalid optimizer. Options are: 'linear', 'nonlinear'")
 
+
     settings = {
         "shots": shots,
         "providers": providers,
@@ -287,6 +288,11 @@ if __name__ == "__main__":
         "results_folder": results_folder,
         "execute_flag": execute_flag
     }
+
+    if optimizer == "nonlinear":
+        settings["nonlinear_iterations"] = int(config.get("SETTINGS", "nonlinear_iterations", fallback=50))
+        settings["nonlinear_annealings"] = int(config.get("SETTINGS", "nonlinear_annealings", fallback=10))
+
 
     qasm = None
     if circuit_path.endswith('.json'):

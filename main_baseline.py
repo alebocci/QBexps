@@ -1,4 +1,5 @@
 from evaluator_sim import Evaluator
+from quantum_executor import VirtualProvider
 import os, json
 
 
@@ -9,6 +10,11 @@ scenarios = ["scenario1.json", "scenario2.json", "scenario3.json"]
 providers = [["local_aer", []]]
 backends = [("local_aer", "fake_torino"), ("local_aer", "fake_kyiv"), ("local_aer", "fake_sherbrooke"), ("local_aer", "fake_fez"), ("local_aer", "fake_marrakesh")]
 
+
+virtual_provider = VirtualProvider({"local_aer": {}}, ["local_aer"])
+
+if not os.path.exists(results_folder):
+    os.makedirs(results_folder)
 
 data = []
 for filename in os.listdir(circuits_dir):
@@ -33,9 +39,11 @@ baselines = {"all_torino":[("fake_torino",shots)],
 def created_dispatch(backends, circuit, shot_vals):
     dispatch = {}
     for provider, backend in backends:
-        dispatch[provider] = {}
-        if shot_vals[backend] != 0:
-            dispatch[provider][backend] = [{"circuit": circuit, "shots": int(shot_vals[backend])}]
+        if backend not in shot_vals or shot_vals[backend] == 0:
+            continue
+        if provider not in dispatch:
+            dispatch[provider] = {}
+        dispatch[provider][backend] = [{"circuit": circuit, "shots": int(shot_vals[backend])}]
     return dispatch
 
 
@@ -58,7 +66,8 @@ for alg, size, qasm, circuit_name in data:
         times = []
         shot_vals = {}
         for backend, shots in baseline:
-            estimates[backend] = evaluator.evaluate_qpu(backend, shots)
+            _backend = virtual_provider.get_backend("local_aer", backend)
+            estimates[backend] = evaluator.evaluate_qpu(_backend, shots)
             cost = estimates[backend]["cost"]
             execution_time = estimates[backend]["execution_time"]
             waiting_time = estimates[backend]["waiting_time"]
