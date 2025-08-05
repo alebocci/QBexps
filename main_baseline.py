@@ -64,6 +64,7 @@ for alg, size, qasm, circuit_name in data:
         estimates = {}
         costs = []
         times = []
+        fidelities = []
         shot_vals = {}
         for backend, shots in baseline:
             _backend = virtual_provider.get_backend("local_aer", backend)
@@ -71,15 +72,19 @@ for alg, size, qasm, circuit_name in data:
             cost = estimates[backend]["cost"]
             execution_time = estimates[backend]["execution_time"]
             waiting_time = estimates[backend]["waiting_time"]
+            fidelity = estimates[backend]["fidelity"]
+
             time = execution_time + waiting_time
             costs.append(cost)
             times.append(time)
+            fidelities.append(fidelity)
             shot_vals[backend] = shots
         scenario1_value = scenario1(costs, times)
         scenario2_value = scenario2(costs)
         scenario3_value = scenario3(times)
         total_cost = sum(costs)
         max_time = max(times)
+        min_fidelity = min(fidelities)
         dispatch = created_dispatch(backends, qasm, shot_vals)
         to_dump = {
             "algorithm": alg,
@@ -91,6 +96,7 @@ for alg, size, qasm, circuit_name in data:
             "scenario3_value": scenario3_value,
             "total_cost": total_cost,
             "max_time": max_time,
+            "min_fidelity": min_fidelity,
             "dispatch": dispatch
         }
         filename = f"{results_folder}/{circuit_name}_{baseline_name}.json"

@@ -10,8 +10,10 @@ providers = [["local_aer", []]]
 backends = [["local_aer", "fake_torino"], ["local_aer", "fake_kyiv"], ["local_aer", "fake_sherbrooke"], ["local_aer", "fake_fez"], ["local_aer", "fake_marrakesh"]]
 execute_flag = False
 optimizer = "nonlinear"
-annealings_max = 50
-iterations_max = 50
+annealings_max = 80
+annealings_step = 5
+iterations_max = 80
+iterations_step = 5
 
 data = []
 
@@ -29,8 +31,8 @@ for filename in os.listdir(circuits_dir):
 for alg,size,qasm, circuit_name in data:
     for scenario in scenarios:
         scenario_name = scenario[:-5]  # Remove .json extension
-        for nonlinear_annealings in range(1, annealings_max + 1):
-            for nonlinear_iterations in range(1, iterations_max + 1):
+        for nonlinear_annealings in range(1, annealings_max + 1, annealings_step):
+            for nonlinear_iterations in range(1, iterations_max + 1, iterations_step):
                 settings = {
                     "providers": providers,
                     "backends": backends,

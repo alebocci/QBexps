@@ -4,7 +4,7 @@ from qb import run_qb
 
 shots = 4096
 circuits_dir = './circuits'
-results_folder = './results_newqb'
+results_folder = './results_qb'
 scenarios = ["scenario1.json", "scenario2.json", "scenario3.json"]
 providers = [["local_aer", []]]
 backends = [["local_aer", "fake_torino"], ["local_aer", "fake_kyiv"], ["local_aer", "fake_sherbrooke"], ["local_aer", "fake_fez"], ["local_aer", "fake_marrakesh"]]
