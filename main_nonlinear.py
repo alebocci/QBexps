@@ -10,8 +10,8 @@ providers = [["local_aer", []]]
 backends = [["local_aer", "fake_torino"], ["local_aer", "fake_kyiv"], ["local_aer", "fake_sherbrooke"], ["local_aer", "fake_fez"], ["local_aer", "fake_marrakesh"]]
 execute_flag = False
 optimizer = "nonlinear"
-annealings_max = 100
-iterations_max = 100
+annealings_max = 50
+iterations_max = 50
 
 data = []
 

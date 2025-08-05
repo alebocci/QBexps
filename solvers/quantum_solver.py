@@ -265,17 +265,16 @@ class QuantumSolver(SolverInterface):
                     best_obj = obj
             except Exception:
                 best_x = np.random.uniform(0.1, 1.0, n)
-
-        for _ in range(self.annealings):
-            x0 = best_x if best_obj < 1e12 else np.random.uniform(0.1, 1.0, n)
-            result = dual_annealing(evaluate, bounds, x0=x0, maxiter=self.iterations)
-            if result.success:
-                if best_obj is None or result.fun < best_obj:
-                    best_x = result.x
-                    best_obj = result.fun
+        if len(names) > 1:
+            for _ in range(self.annealings):
+                x0 = best_x if best_obj < 1e12 else np.random.uniform(0.1, 1.0, n)
+                result = dual_annealing(evaluate, bounds, x0=x0, maxiter=self.iterations)
+                if result.success:
+                    if best_obj is None or result.fun < best_obj:
+                        best_x = result.x
+                        best_obj = result.fun
 
         if best_x is None or best_obj is None or best_obj >= 1e12:
-            print(f"Best_x: {best_x}, Best_obj: {best_obj}")
             end = time.perf_counter()
             return {
                 "status": "no_solution_found",
