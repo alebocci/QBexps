@@ -52,28 +52,28 @@
                 ],
                 "fake_kyiv": [
                     {
-                        "shots": 946
+                        "shots": 944
                     }
                 ],
                 "fake_sherbrooke": [
                     {
-                        "shots": 568
+                        "shots": 574
                     }
                 ],
                 "fake_fez": [
                     {
-                        "shots": 678
+                        "shots": 681
                     }
                 ],
                 "fake_marrakesh": [
                     {
-                        "shots": 715
+                        "shots": 708
                     }
                 ]
             }
         },
-        "score": 373.89,
-        "evaluation": 373.89,
-        "solver_exec_time": 10.296819926999888
+        "score": 373.28999999999996,
+        "evaluation": 373.28999999999996,
+        "solver_exec_time": 19.247084794566035
     }
 }

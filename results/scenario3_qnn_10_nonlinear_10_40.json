@@ -47,33 +47,33 @@
             "local_aer": {
                 "fake_torino": [
                     {
-                        "shots": 1200
+                        "shots": 1171
                     }
                 ],
                 "fake_kyiv": [
                     {
-                        "shots": 911
+                        "shots": 919
                     }
                 ],
                 "fake_sherbrooke": [
                     {
-                        "shots": 529
+                        "shots": 570
                     }
                 ],
                 "fake_fez": [
                     {
-                        "shots": 747
+                        "shots": 732
                     }
                 ],
                 "fake_marrakesh": [
                     {
-                        "shots": 709
+                        "shots": 704
                     }
                 ]
             }
         },
-        "score": 255.2,
-        "evaluation": 255.2,
-        "solver_exec_time": 8.45432284799972
+        "score": 256.07000000000005,
+        "evaluation": 256.07000000000005,
+        "solver_exec_time": 16.554418720304966
     }
 }

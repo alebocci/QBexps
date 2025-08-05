@@ -45,6 +45,6 @@
         "status": "no_solution_found",
         "shots": {},
         "objective": null,
-        "solver_exec_time": 0.8332450969992351
+        "solver_exec_time": 1.5894118156284094
     }
 }

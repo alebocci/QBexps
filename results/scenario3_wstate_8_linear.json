@@ -43,6 +43,6 @@
         "status": "no_solution_found",
         "dispatch": {},
         "objective": null,
-        "solver_exec_time": 0.005900408999877982
+        "solver_exec_time": 0.013032490387558937
     }
 }
