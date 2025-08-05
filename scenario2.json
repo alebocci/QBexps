@@ -1,8 +1,8 @@
 {
   "constraints": [
-    "sum(cost) <= 1000",
-    "min(fidelity) >= 0.91",
-    "max(execution_time + waiting_time) <= 900"
+    "sum(cost) <= 2000",
+    "min(fidelity) >= 0.85",
+    "max(execution_time + waiting_time) <= 1600"
   ],
   "objective": "-sum(cost)"
 }

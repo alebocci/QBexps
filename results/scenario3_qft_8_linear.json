@@ -1,0 +1,77 @@
+{
+    "configuration": {
+        "providers": [
+            [
+                "local_aer",
+                []
+            ]
+        ],
+        "backends": [
+            [
+                "local_aer",
+                "fake_torino"
+            ],
+            [
+                "local_aer",
+                "fake_kyiv"
+            ],
+            [
+                "local_aer",
+                "fake_sherbrooke"
+            ],
+            [
+                "local_aer",
+                "fake_fez"
+            ],
+            [
+                "local_aer",
+                "fake_marrakesh"
+            ]
+        ],
+        "execute_flag": false,
+        "qasm": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_QFT q0,q1,q2,q3,q4,q5,q6,q7 { h q7; cp(pi/2) q7,q6; cp(pi/4) q7,q5; cp(pi/8) q7,q4; cp(pi/16) q7,q3; cp(pi/32) q7,q2; cp(pi/64) q7,q1; cp(pi/128) q7,q0; h q6; cp(pi/2) q6,q5; cp(pi/4) q6,q4; cp(pi/8) q6,q3; cp(pi/16) q6,q2; cp(pi/32) q6,q1; cp(pi/64) q6,q0; h q5; cp(pi/2) q5,q4; cp(pi/4) q5,q3; cp(pi/8) q5,q2; cp(pi/16) q5,q1; cp(pi/32) q5,q0; h q4; cp(pi/2) q4,q3; cp(pi/4) q4,q2; cp(pi/8) q4,q1; cp(pi/16) q4,q0; h q3; cp(pi/2) q3,q2; cp(pi/4) q3,q1; cp(pi/8) q3,q0; h q2; cp(pi/2) q2,q1; cp(pi/4) q2,q0; h q1; cp(pi/2) q1,q0; h q0; swap q0,q7; swap q1,q6; swap q2,q5; swap q3,q4; }\nqreg q[8];\ncreg meas[8];\ngate_QFT q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7];\nmeasure q[0] -> meas[0];\nmeasure q[1] -> meas[1];\nmeasure q[2] -> meas[2];\nmeasure q[3] -> meas[3];\nmeasure q[4] -> meas[4];\nmeasure q[5] -> meas[5];\nmeasure q[6] -> meas[6];\nmeasure q[7] -> meas[7];",
+        "results_folder": "./results",
+        "optimizer": "linear",
+        "algorithm": "qft",
+        "size": 8,
+        "circuit_name": "qft_8",
+        "shots": 4096
+    },
+    "model_file": "scenario3.json",
+    "circuit_name": "qft_8",
+    "reasoner_results": {
+        "status": "solution_found",
+        "dispatch": {
+            "local_aer": {
+                "fake_torino": [
+                    {
+                        "shots": 953
+                    }
+                ],
+                "fake_kyiv": [
+                    {
+                        "shots": 836
+                    }
+                ],
+                "fake_sherbrooke": [
+                    {
+                        "shots": 668
+                    }
+                ],
+                "fake_fez": [
+                    {
+                        "shots": 736
+                    }
+                ],
+                "fake_marrakesh": [
+                    {
+                        "shots": 903
+                    }
+                ]
+            }
+        },
+        "score": 265.6,
+        "evaluation": 229.51999999999998,
+        "solver_exec_time": 0.014759694999156636
+    }
+}
