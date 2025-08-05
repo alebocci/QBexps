@@ -242,7 +242,7 @@ class PulpSolver(SolverInterface):
             obj = safe_eval(expr_mod, ctx)
             prob += obj
 
-        prob.writeLP("debug_model.lp")
+        #prob.writeLP("debug_model.lp")
 
         prob.solve(pulp.PULP_CBC_CMD(msg=False))
 
