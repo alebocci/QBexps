@@ -37,6 +37,7 @@ def series_from_1_by_5(max_value):
     while i <= max_value:
         yield i
         i += 5
+
 for alg,size,qasm, circuit_name in data:
     for scenario in scenarios:
         scenario_name = scenario[:-5]  # Remove .json extension
@@ -62,3 +63,4 @@ for alg,size,qasm, circuit_name in data:
                     print(f"******Skipping {filename} as it already exists ******")
                     continue
                 run_qb(settings, scenario)
+
