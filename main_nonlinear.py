@@ -10,9 +10,9 @@ providers = [["local_aer", []]]
 backends = [["local_aer", "fake_torino"], ["local_aer", "fake_kyiv"], ["local_aer", "fake_sherbrooke"], ["local_aer", "fake_fez"], ["local_aer", "fake_marrakesh"]]
 execute_flag = False
 optimizer = "nonlinear"
-annealings_max = 80
+annealings_max = 50
 annealings_step = 5
-iterations_max = 80
+iterations_max = 50
 iterations_step = 5
 
 data = []
@@ -28,11 +28,18 @@ for filename in os.listdir(circuits_dir):
                 print(f"Error reading {filename}: {e}")
 
 
+def series_from_1_by_5(max_value):
+    yield 1
+    i = 5
+    while i <= max_value:
+        yield i
+        i += 5
+
 for alg,size,qasm, circuit_name in data:
     for scenario in scenarios:
         scenario_name = scenario[:-5]  # Remove .json extension
-        for nonlinear_annealings in range(1, annealings_max + 1, annealings_step):
-            for nonlinear_iterations in range(1, iterations_max + 1, iterations_step):
+        for nonlinear_annealings in series_from_1_by_5(annealings_max):
+            for nonlinear_iterations in series_from_1_by_5(iterations_max):
                 settings = {
                     "providers": providers,
                     "backends": backends,
@@ -48,10 +55,10 @@ for alg,size,qasm, circuit_name in data:
                     "nonlinear_annealings": nonlinear_annealings
                 }
 
-                filename = f"{results_folder}/{scenario_name}{circuit_name}_{optimizer}_{nonlinear_annealings}_{nonlinear_iterations}.json"
+                filename = f"{results_folder}/{scenario_name}_{circuit_name}_{optimizer}_{nonlinear_annealings}_{nonlinear_iterations}.json"
                 
                 if os.path.exists(filename):
                     print(f"******Skipping {filename} as it already exists ******")
                     continue
-
+                print(f"Running {filename}")
                 run_qb(settings, scenario)
