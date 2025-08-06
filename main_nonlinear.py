@@ -1,18 +1,21 @@
-import os
+import os, sys
 import json
 from qb import run_qb
 
+
+circuit_group = sys.argv[1]
+
 shots = 4096
-circuits_dir = './circuits'
+circuits_dir = f'./circuits_nonlinear/{circuit_group}/'
 results_folder = './results_nonlinear'
 scenarios = ["scenario1.json", "scenario2.json", "scenario3.json"]
 providers = [["local_aer", []]]
 backends = [["local_aer", "fake_torino"], ["local_aer", "fake_kyiv"], ["local_aer", "fake_sherbrooke"], ["local_aer", "fake_fez"], ["local_aer", "fake_marrakesh"]]
 execute_flag = False
 optimizer = "nonlinear"
-annealings_max = 50
+annealings_max = 30
 annealings_step = 5
-iterations_max = 50
+iterations_max = 60
 iterations_step = 5
 
 data = []
@@ -34,7 +37,6 @@ def series_from_1_by_5(max_value):
     while i <= max_value:
         yield i
         i += 5
-
 for alg,size,qasm, circuit_name in data:
     for scenario in scenarios:
         scenario_name = scenario[:-5]  # Remove .json extension
@@ -56,9 +58,7 @@ for alg,size,qasm, circuit_name in data:
                 }
 
                 filename = f"{results_folder}/{scenario_name}_{circuit_name}_{optimizer}_{nonlinear_annealings}_{nonlinear_iterations}.json"
-                
                 if os.path.exists(filename):
                     print(f"******Skipping {filename} as it already exists ******")
                     continue
-                print(f"Running {filename}")
                 run_qb(settings, scenario)
