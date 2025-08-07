@@ -1,0 +1,82 @@
+{
+    "configuration": {
+        "providers": [
+            [
+                "local_aer",
+                []
+            ]
+        ],
+        "backends": [
+            [
+                "local_aer",
+                "fake_torino"
+            ],
+            [
+                "local_aer",
+                "fake_kyiv"
+            ],
+            [
+                "local_aer",
+                "fake_sherbrooke"
+            ],
+            [
+                "local_aer",
+                "fake_fez"
+            ],
+            [
+                "local_aer",
+                "fake_marrakesh"
+            ]
+        ],
+        "execute_flag": false,
+        "qasm": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_QFT q0,q1,q2,q3,q4,q5 { h q5; cp(pi/2) q5,q4; cp(pi/4) q5,q3; cp(pi/8) q5,q2; cp(pi/16) q5,q1; cp(pi/32) q5,q0; h q4; cp(pi/2) q4,q3; cp(pi/4) q4,q2; cp(pi/8) q4,q1; cp(pi/16) q4,q0; h q3; cp(pi/2) q3,q2; cp(pi/4) q3,q1; cp(pi/8) q3,q0; h q2; cp(pi/2) q2,q1; cp(pi/4) q2,q0; h q1; cp(pi/2) q1,q0; h q0; swap q0,q5; swap q1,q4; swap q2,q3; }\nqreg q[6];\ncreg meas[6];\ngate_QFT q[0],q[1],q[2],q[3],q[4],q[5];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5];\nmeasure q[0] -> meas[0];\nmeasure q[1] -> meas[1];\nmeasure q[2] -> meas[2];\nmeasure q[3] -> meas[3];\nmeasure q[4] -> meas[4];\nmeasure q[5] -> meas[5];",
+        "results_folder": "./results_nonlinear",
+        "optimizer": "nonlinear",
+        "algorithm": "qft",
+        "size": 6,
+        "circuit_name": "qft_6",
+        "shots": 4096,
+        "nonlinear_iterations": 35,
+        "nonlinear_annealings": 15
+    },
+    "model_file": "scenario3.json",
+    "circuit_name": "qft_6",
+    "reasoner_results": {
+        "status": "solution_found",
+        "dispatch": {
+            "local_aer": {
+                "fake_torino": [
+                    {
+                        "shots": 1194
+                    }
+                ],
+                "fake_kyiv": [
+                    {
+                        "shots": 842
+                    }
+                ],
+                "fake_sherbrooke": [
+                    {
+                        "shots": 547
+                    }
+                ],
+                "fake_fez": [
+                    {
+                        "shots": 825
+                    }
+                ],
+                "fake_marrakesh": [
+                    {
+                        "shots": 688
+                    }
+                ]
+            }
+        },
+        "score": 195.12,
+        "evaluation": 195.12,
+        "solver_exec_time": 19.513132765889168,
+        "total_cost": 206.07939272777864,
+        "max_time": 195.12,
+        "min_fidelity": 0.9564
+    }
+}

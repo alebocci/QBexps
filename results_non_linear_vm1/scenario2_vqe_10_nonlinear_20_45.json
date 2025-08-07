@@ -1,0 +1,82 @@
+{
+    "configuration": {
+        "providers": [
+            [
+                "local_aer",
+                []
+            ]
+        ],
+        "backends": [
+            [
+                "local_aer",
+                "fake_torino"
+            ],
+            [
+                "local_aer",
+                "fake_kyiv"
+            ],
+            [
+                "local_aer",
+                "fake_sherbrooke"
+            ],
+            [
+                "local_aer",
+                "fake_fez"
+            ],
+            [
+                "local_aer",
+                "fake_marrakesh"
+            ]
+        ],
+        "execute_flag": false,
+        "qasm": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_RealAmplitudes(param0,param1,param2,param3,param4,param5,param6,param7,param8,param9,param10,param11,param12,param13,param14,param15,param16,param17,param18,param19,param20,param21,param22,param23,param24,param25,param26,param27,param28,param29) q0,q1,q2,q3,q4,q5,q6,q7,q8,q9 { ry(-0.810265805408434) q0; ry(-pi) q1; ry(-1.597076527422466) q2; ry(0.8378219494094993) q3; ry(1.5708488892448287) q4; ry(-1.5708709496655895) q5; ry(-1.57087223372094) q6; ry(1.5695786566268046) q7; ry(-1.5707300371756965) q8; ry(1.5658286024760506) q9; cx q8,q9; cx q7,q8; cx q6,q7; cx q5,q6; cx q4,q5; cx q3,q4; cx q2,q3; cx q1,q2; cx q0,q1; ry(3.1408829398132747) q0; ry(-2.1202379220574894) q1; ry(-3.1062273627535197) q2; ry(-3.118010294844514) q3; ry(-3.141469467262241) q4; ry(-2.4685583238484674e-05) q5; ry(-1.2555526923903603e-05) q6; ry(3.1414935838460423) q7; ry(-3.141528837711286) q8; ry(-3.1415826124158306) q9; cx q8,q9; cx q7,q8; cx q6,q7; cx q5,q6; cx q4,q5; cx q3,q4; cx q2,q3; cx q1,q2; cx q0,q1; ry(-2.805096361258466) q0; ry(-1.3123091525481534) q1; ry(1.5708023278457706) q2; ry(0.8387395929551144) q3; ry(-1.5708279310857924) q4; ry(1.5707839537794939) q5; ry(-1.5708276366058143) q6; ry(1.5695658423834604) q7; ry(-1.5708510758186132) q8; ry(1.2185932589437705) q9; }\nqreg q[10];\ncreg meas[10];\ngate_RealAmplitudes(-0.810265805408434,-pi,-1.597076527422466,0.8378219494094993,1.5708488892448287,-1.5708709496655895,-1.57087223372094,1.5695786566268046,-1.5707300371756965,1.5658286024760506,3.1408829398132747,-2.1202379220574894,-3.1062273627535197,-3.118010294844514,-3.141469467262241,-2.4685583238484674e-05,-1.2555526923903603e-05,3.1414935838460423,-3.141528837711286,-3.1415826124158306,-2.805096361258466,-1.3123091525481534,1.5708023278457706,0.8387395929551144,-1.5708279310857924,1.5707839537794939,-1.5708276366058143,1.5695658423834604,-1.5708510758186132,1.2185932589437705) q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8],q[9];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7],q[8],q[9];\nmeasure q[0] -> meas[0];\nmeasure q[1] -> meas[1];\nmeasure q[2] -> meas[2];\nmeasure q[3] -> meas[3];\nmeasure q[4] -> meas[4];\nmeasure q[5] -> meas[5];\nmeasure q[6] -> meas[6];\nmeasure q[7] -> meas[7];\nmeasure q[8] -> meas[8];\nmeasure q[9] -> meas[9];",
+        "results_folder": "./results_nonlinear",
+        "optimizer": "nonlinear",
+        "algorithm": "vqe",
+        "size": 10,
+        "circuit_name": "vqe_10",
+        "shots": 4096,
+        "nonlinear_iterations": 45,
+        "nonlinear_annealings": 20
+    },
+    "model_file": "scenario2.json",
+    "circuit_name": "vqe_10",
+    "reasoner_results": {
+        "status": "solution_found",
+        "dispatch": {
+            "local_aer": {
+                "fake_torino": [
+                    {
+                        "shots": 473
+                    }
+                ],
+                "fake_kyiv": [
+                    {
+                        "shots": 13
+                    }
+                ],
+                "fake_sherbrooke": [
+                    {
+                        "shots": 21
+                    }
+                ],
+                "fake_fez": [
+                    {
+                        "shots": 3539
+                    }
+                ],
+                "fake_marrakesh": [
+                    {
+                        "shots": 50
+                    }
+                ]
+            }
+        },
+        "score": -254.15210278527977,
+        "evaluation": -254.15210278527977,
+        "solver_exec_time": 49.568740133196115,
+        "total_cost": 254.15210278527977,
+        "max_time": 737.9200000000001,
+        "min_fidelity": 0.8557
+    }
+}
