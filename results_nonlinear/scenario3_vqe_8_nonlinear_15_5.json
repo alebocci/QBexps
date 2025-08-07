@@ -1,0 +1,82 @@
+{
+    "configuration": {
+        "providers": [
+            [
+                "local_aer",
+                []
+            ]
+        ],
+        "backends": [
+            [
+                "local_aer",
+                "fake_torino"
+            ],
+            [
+                "local_aer",
+                "fake_kyiv"
+            ],
+            [
+                "local_aer",
+                "fake_sherbrooke"
+            ],
+            [
+                "local_aer",
+                "fake_fez"
+            ],
+            [
+                "local_aer",
+                "fake_marrakesh"
+            ]
+        ],
+        "execute_flag": false,
+        "qasm": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_RealAmplitudes(param0,param1,param2,param3,param4,param5,param6,param7,param8,param9,param10,param11,param12,param13,param14,param15,param16,param17,param18,param19,param20,param21,param22,param23) q0,q1,q2,q3,q4,q5,q6,q7 { ry(1.571113756707328) q0; ry(-3.1415002639391854) q1; ry(-1.5705817864714031) q2; ry(-2.8711056657459557e-05) q3; ry(-1.5708685920876115) q4; ry(-pi) q5; ry(-pi) q6; ry(-0.9719493206145055) q7; cx q6,q7; cx q5,q6; cx q4,q5; cx q3,q4; cx q2,q3; cx q1,q2; cx q0,q1; ry(0.2978862862423039) q0; ry(2.8436842988777995) q1; ry(-0.36761283840435816) q2; ry(2.7739963570563284) q3; ry(3.115447297911419) q4; ry(-0.02626388430152761) q5; ry(-1.9209778948369756) q6; ry(-2.192825924980587) q7; cx q6,q7; cx q5,q6; cx q4,q5; cx q3,q4; cx q2,q3; cx q1,q2; cx q0,q1; ry(-1.5707714106932908) q0; ry(-7.255970406801291e-05) q1; ry(-1.5707150203917164) q2; ry(0.0009481955791961796) q3; ry(1.5707993569094079) q4; ry(-3.1415003332184224) q5; ry(-1.5708474945114432) q6; ry(-pi) q7; }\nqreg q[8];\ncreg meas[8];\ngate_RealAmplitudes(1.571113756707328,-3.1415002639391854,-1.5705817864714031,-2.8711056657459557e-05,-1.5708685920876115,-pi,-pi,-0.9719493206145055,0.2978862862423039,2.8436842988777995,-0.36761283840435816,2.7739963570563284,3.115447297911419,-0.02626388430152761,-1.9209778948369756,-2.192825924980587,-1.5707714106932908,-7.255970406801291e-05,-1.5707150203917164,0.0009481955791961796,1.5707993569094079,-3.1415003332184224,-1.5708474945114432,-pi) q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5],q[6],q[7];\nmeasure q[0] -> meas[0];\nmeasure q[1] -> meas[1];\nmeasure q[2] -> meas[2];\nmeasure q[3] -> meas[3];\nmeasure q[4] -> meas[4];\nmeasure q[5] -> meas[5];\nmeasure q[6] -> meas[6];\nmeasure q[7] -> meas[7];",
+        "results_folder": "./results_nonlinear",
+        "optimizer": "nonlinear",
+        "algorithm": "vqe",
+        "size": 8,
+        "circuit_name": "vqe_8",
+        "shots": 4096,
+        "nonlinear_iterations": 5,
+        "nonlinear_annealings": 15
+    },
+    "model_file": "scenario3.json",
+    "circuit_name": "vqe_8",
+    "reasoner_results": {
+        "status": "solution_found",
+        "dispatch": {
+            "local_aer": {
+                "fake_torino": [
+                    {
+                        "shots": 1335
+                    }
+                ],
+                "fake_kyiv": [
+                    {
+                        "shots": 707
+                    }
+                ],
+                "fake_sherbrooke": [
+                    {
+                        "shots": 567
+                    }
+                ],
+                "fake_fez": [
+                    {
+                        "shots": 728
+                    }
+                ],
+                "fake_marrakesh": [
+                    {
+                        "shots": 759
+                    }
+                ]
+            }
+        },
+        "score": 208.6,
+        "evaluation": 208.6,
+        "solver_exec_time": 7.156308702193201,
+        "total_cost": 205.78736782893685,
+        "max_time": 208.6,
+        "min_fidelity": 0.9558
+    }
+}
