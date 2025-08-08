@@ -50,7 +50,7 @@ This repository contains experiments using the Quantum Broker tool (`qb.py`) for
   python main.py
   ```
 
-- **Run nonlinear solver experiments (specify circuit group):**
+- **Run nonlinear solver experiments (specify circuit group folder of circuits_nonlinear/):**
   ```bash
   python main_nonlinear.py 1
   ```
@@ -65,7 +65,7 @@ This repository contains experiments using the Quantum Broker tool (`qb.py`) for
 
 - Baseline results: `results_baseline/`
 - Main experiment results: `results_qb/`
-- Nonlinear solver results: `results_nonlinear_vm2/`
+- Nonlinear solver results: `results_nonlinear_vm1/`
 
 Each output file is a JSON containing:
 - Algorithm, circuit size, scenario values
@@ -77,21 +77,19 @@ Each output file is a JSON containing:
 ```mermaid
 flowchart TD
     A[Start] --> B[Choose experiment type]
-    B --> C[Run main_baseline.py for baseline]
-    B --> D[Run main.py for main experiments]
-    B --> E[Run main_nonlinear.py for nonlinear solver]
-    C --> F[Results in results_baseline/]
-    D --> G[Results in results_qb/]
-    E --> H[Results in results_nonlinear_vm2/]
-    F --> I[Analyze with analyze.ipynb]
-    G --> I
-    H --> J[Analyze with analyze_nonlinear.ipynb]
+    B --> C[Quantum Broker vs baselines]
+    B --> D[Non linear solver parameter sweep] 
+    C --> E[Run main_baseline.py for baseline]
+    C --> F[Run main.py for main experiments]
+    D --> G[Run main_nonlinear.py for nonlinear solver]
+    E --> H[Results in results_baseline/]
+    F --> I[Results in results_qb/]
+    G --> J[Results in results_nonlinear_vm1/]
+    H --> K[Analyze with analyze.ipynb]
+    I --> L
+    J --> M[Analyze with analyze_nonlinear.ipynb]
 ```
 
 ## License
 
 This project is licensed under the AGPL-3.0 License.
-
-## Contributions
-
-Contributions are welcome! Please submit pull requests or open issues for improvements and bug fixes.
