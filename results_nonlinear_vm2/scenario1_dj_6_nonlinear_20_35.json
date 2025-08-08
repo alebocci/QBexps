@@ -1,0 +1,77 @@
+{
+    "configuration": {
+        "providers": [
+            [
+                "local_aer",
+                []
+            ]
+        ],
+        "backends": [
+            [
+                "local_aer",
+                "fake_torino"
+            ],
+            [
+                "local_aer",
+                "fake_kyiv"
+            ],
+            [
+                "local_aer",
+                "fake_sherbrooke"
+            ],
+            [
+                "local_aer",
+                "fake_fez"
+            ],
+            [
+                "local_aer",
+                "fake_marrakesh"
+            ]
+        ],
+        "execute_flag": false,
+        "qasm": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\ngate gate_Oracle q0,q1,q2,q3,q4,q5 { x q0; x q1; x q4; cx q0,q5; cx q1,q5; cx q2,q5; cx q3,q5; cx q4,q5; x q0; x q1; x q4; }\nqreg q[6];\ncreg c[5];\nx q[5];\nh q[5];\nh q[0];\nh q[1];\nh q[2];\nh q[3];\nh q[4];\ngate_Oracle q[0],q[1],q[2],q[3],q[4],q[5];\nh q[0];\nh q[1];\nh q[2];\nh q[3];\nh q[4];\nbarrier q[0],q[1],q[2],q[3],q[4],q[5];\nmeasure q[0] -> c[0];\nmeasure q[1] -> c[1];\nmeasure q[2] -> c[2];\nmeasure q[3] -> c[3];\nmeasure q[4] -> c[4];",
+        "results_folder": "./results_nonlinear_vm2",
+        "optimizer": "nonlinear",
+        "algorithm": "dj",
+        "size": 6,
+        "circuit_name": "dj_6",
+        "shots": 4096,
+        "nonlinear_iterations": 35,
+        "nonlinear_annealings": 20
+    },
+    "model_file": "scenario1.json",
+    "circuit_name": "dj_6",
+    "reasoner_results": {
+        "status": "solution_found",
+        "dispatch": {
+            "local_aer": {
+                "fake_torino": [
+                    {
+                        "shots": 1550
+                    }
+                ],
+                "fake_sherbrooke": [
+                    {
+                        "shots": 747
+                    }
+                ],
+                "fake_fez": [
+                    {
+                        "shots": 864
+                    }
+                ],
+                "fake_marrakesh": [
+                    {
+                        "shots": 935
+                    }
+                ]
+            }
+        },
+        "score": 470.43549028034056,
+        "evaluation": 470.43549028034056,
+        "solver_exec_time": 80.57756892871112,
+        "total_cost": 478.27098056068115,
+        "max_time": 462.6,
+        "min_fidelity": 0.9084
+    }
+}

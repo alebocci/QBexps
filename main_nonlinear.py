@@ -7,7 +7,7 @@ circuit_group = sys.argv[1]
 
 shots = 4096
 circuits_dir = f'./circuits_nonlinear/{circuit_group}/'
-results_folder = './results_nonlinear'
+results_folder = './results_nonlinear_vm2'
 scenarios = ["scenario1.json", "scenario2.json", "scenario3.json"]
 providers = [["local_aer", []]]
 backends = [["local_aer", "fake_torino"], ["local_aer", "fake_kyiv"], ["local_aer", "fake_sherbrooke"], ["local_aer", "fake_fez"], ["local_aer", "fake_marrakesh"]]
