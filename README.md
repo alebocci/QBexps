@@ -86,7 +86,7 @@ flowchart TD
     F --> I[Results in results_qb/]
     G --> J[Results in results_nonlinear_vm1/]
     H --> K[Analyze with analyze.ipynb]
-    I --> L
+    I --> K
     J --> M[Analyze with analyze_nonlinear.ipynb]
 ```
 
